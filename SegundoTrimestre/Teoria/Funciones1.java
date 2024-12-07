@@ -10,6 +10,7 @@ public class Funciones1
         System.out.println("Sigo");
         saluda();
         System.out.println("Acabo");
+        saluda();
     }
 
     public static  void saluda()
