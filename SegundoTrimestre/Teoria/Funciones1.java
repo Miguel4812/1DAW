@@ -11,6 +11,7 @@ public class Funciones1
         saluda();
         System.out.println("Acabo");
         saluda();
+        saluda();
     }
 
     public static  void saluda()
