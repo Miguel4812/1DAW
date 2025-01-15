@@ -1,5 +1,8 @@
 package SegundoTrimestre.ConstrolesAnteriores.TrenesPOO;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 @SuppressWarnings("SpellCheckingInspection")
 public class LineaFerrea {
     Tren[] trenes;
