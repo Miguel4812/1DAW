@@ -69,7 +69,7 @@ public class ModeloDeDatos {
         Articulo n2;
         Factura resultado = facturaFusionada(cliente, numFra);
 
-        for(int i=0;i<resultado.gettLineas().length;i++)
+        for(int i=0;i<resultado.gettLineas().length-1;i++)
         {
             n1 = resultado.gettLineas()[i].getArticulo();
             for(int j=i+1;j<resultado.gettLineas().length;j++)

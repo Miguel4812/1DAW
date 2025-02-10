@@ -42,23 +42,45 @@ public class Zoologico
 
     public Mamifero[] getMamiferosEntreFechas(Fecha inicio, Fecha fin)
     {
+        Zoologico z = new Zoologico();
+        for(Mamifero m:this.tMamiferos)
+            if(m.getDiaNacimiento().compareTo(inicio)<0&m.getDiaNacimiento().compareTo(fin)<0)
+                z.añadeMamifero(m);
 
-
-        return null;
+        return z.tMamiferos;
     }
 
-    public int getNVeterinariosMasDe(int minNumNacimientos)
-    {
-        return 0;
+    public int getNVeterinariosMasDe(int minNumNacimientos) {
+        int resultado = 0;
+        int contador = 0;
+
+        for (Veterinario v : this.tVeterinarios)
+        {
+            contador = 0;
+            for (Mamifero m : this.tMamiferos) {
+                if (m.getAsistente().equals(v))
+                    contador++;
+            }
+            if (contador >= minNumNacimientos)
+                resultado++;
+        }
+
+        return resultado;
     }
 
     public boolean veterinarioPadresEHijo()
     {
+        for(Mamifero m:this.tMamiferos)
+            if(m.getAsistente().equals(m.getPadre().getAsistente())&&m.getAsistente().equals(m.getMadre().getAsistente()))
+                return true;
         return false;
     }
 
     public boolean hayErroresEnFechas()
     {
+        for(Mamifero m:this.tMamiferos)
+            if(m.getDiaNacimiento().compareTo(m.getPadre().getDiaNacimiento())>0 || m.getDiaNacimiento().compareTo(m.getMadre().getDiaNacimiento())>0)
+                return true;
         return false;
     }
 }
